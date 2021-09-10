@@ -53,7 +53,7 @@ let config = {
         },
         title: {
           display: true,
-          
+          text: 'Click on Coloured Legend, to select ot deselect datasets'
         }
       }
     },
@@ -63,10 +63,22 @@ let config = {
   let myChart = new Chart(ctx,config);
 
   function changeChart(charttype){
-      let config = {
-          type: charttype,
-          data
-      };
+    let config = {
+      type: 'bar',
+      data: data,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'Click on Coloured Legend, to select ot deselect datasets'
+          }
+        }
+      },
+    };
       if(myChart){
           myChart.destroy();
       }
